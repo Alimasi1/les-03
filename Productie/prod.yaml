@@ -1,0 +1,12 @@
+---
+- name: Configureer webservers
+  hosts: web
+  become: true
+  roles:
+    - role_web
+
+- name: Configureer database server
+  hosts: db
+  become: true
+  roles:
+    - alimasi1.role_db
