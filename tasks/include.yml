@@ -1,0 +1,4 @@
+---
+- name: Dit is een include taak
+  debug:
+    msg: "Deze taak wordt dynamisch geladen tijdens runtime (include_tasks)"

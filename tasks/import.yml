@@ -1,0 +1,4 @@
+---
+- name: Dit is een import taak
+  debug:
+    msg: "Deze taak is geladen bij het parsen (import_tasks)"
