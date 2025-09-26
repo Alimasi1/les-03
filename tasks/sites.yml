@@ -5,10 +5,11 @@
 
   tasks:
     - name: Importeer taken (import_tasks)
-      import_tasks: tasks/import_example.yml
+      import_tasks: tasks/import.yml
 
     - name: Include taken (include_tasks)
-      include_tasks: tasks/include_example.yml
+      include_tasks: tasks/include.yml
 
   roles:
     - role_firewall
+
