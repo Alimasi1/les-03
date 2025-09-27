@@ -1,0 +1,11 @@
+- hosts: db-1-prod
+  become: true
+  tasks:
+    - name: Maak testdatabase aan
+      community.mysql.mysql_db:
+        name: testdb
+        state: present
+        login_user: root
+        login_password: ""
+        login_unix_socket: /run/mysqld/mysqld.sock
+        auth_plugin: unix_socket

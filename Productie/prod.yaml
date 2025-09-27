@@ -9,4 +9,4 @@
   hosts: db
   become: true
   roles:
-    - alimasi1.role_db
+    - role_db
