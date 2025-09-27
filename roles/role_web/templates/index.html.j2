@@ -1,0 +1,8 @@
+<html>
+  <head><title>Webserver</title></head>
+  <body>
+    <h1>Welkom op {{ inventory_hostname }}</h1>
+    <p>Datum: {{ ansible_date_time.date }}</p>
+    <p>Tijd: {{ ansible_date_time.time }}</p>
+  </body>
+</html>

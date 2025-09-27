@@ -1,0 +1,35 @@
+- name: Installeer nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Plaats index.html
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: '0644'
+
+- name: Start nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Plaats nginx config met juiste poort
+  ansible.builtin.template:
+    src: default.conf.j2
+    dest: /etc/nginx/sites-available/default
+  notify: Restart nginx
+
+- name: Pas Nginx poort aan
+  ansible.builtin.replace:
+    path: /etc/nginx/sites-enabled/default
+    regexp: 'listen 80;'
+    replace: "listen {{ nginx_port }};"
+  notify: Restart nginx
+
+- name: Restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
